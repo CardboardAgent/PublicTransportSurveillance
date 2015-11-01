@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Example of the PublicTransportSurveillance-System
  *
  * @author Berger Adrian
- * @author BrÃ¶nnimann Nick
+ * @author Brönnimann Nick
  * @since 0.0.1
  * @version 0.0.1
  */
@@ -48,11 +48,11 @@ public class Test {
     {
         if(!delayedBuses.isEmpty()) {
             for (Bus bus : delayedBuses) {
-                System.out.println(observer.getClass() + " meldet: Bus " + bus.getNumber() + " hat eine VerspÃ¤tung von " +
+                System.out.println(observer.getClass() + " meldet: Bus " + bus.getNumber() + " hat eine Verspätung von " +
                         bus.getDelay() + "Minuten");
             }
         } else {
-            System.out.println(observer.getClass() + ": Bisher keine VerspÃ¤tungen vorhanden. Wir wÃ¼nschen Ihnen eine gute Fahrt!");
+            System.out.println(observer.getClass() + ": Bisher keine Verspätungen vorhanden. Wir wünschen Ihnen eine gute Fahrt!");
         }
     }
 }

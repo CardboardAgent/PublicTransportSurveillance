@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * as the observer-interface inn the observer pattern
  *
  * @author Berger Adrian
- * @author BrÃ¶nnimann Nick
+ * @author Brönnimann Nick
  * @since 0.0.1
  * @version 0.0.1
  */

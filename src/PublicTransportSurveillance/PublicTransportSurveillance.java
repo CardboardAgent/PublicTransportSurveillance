@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * which acts as a subject in the observer pattern
  *
  * @author Berger Adrian
- * @author BrÃ¶nnimann Nick
+ * @author Brönnimann Nick
  * @since 0.0.1
  * @version 0.0.1
  */
