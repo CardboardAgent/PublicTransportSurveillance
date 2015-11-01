@@ -33,6 +33,8 @@ public class Test {
 
         // get current delays and display them
         printDelay(busStation, busStation.getDelayedBus());
+        printDelay(website, website.getDelayedBus());
+        printDelay(mobileApplication, mobileApplication.getDelayedBus());
 
         // cause delay
         busOne.setDelay(60.5f);
@@ -52,10 +54,10 @@ public class Test {
         if(!buses.isEmpty()) {
         	for (Bus bus : buses) {
                 System.out.println(observer.getClass() + " meldet: Bus " + bus.getNumber() + " hat eine Verspätung von " +
-                        bus.getDelay() + "Minuten");
+                        bus.getDelay() + " Minuten");
             }
         } else {
-            System.out.println(observer.getClass() + ": Bisher keine Verspätungen vorhanden. Wir wünschen Ihnen eine gute Fahrt!");
+            System.out.println(observer.getClass() + " meldet: Bisher keine Verspätungen vorhanden. Wir wünschen Ihnen eine gute Fahrt!");
         }
     }
 }
