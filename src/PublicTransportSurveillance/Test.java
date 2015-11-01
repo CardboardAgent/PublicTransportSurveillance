@@ -1,12 +1,13 @@
 package PublicTransportSurveillance;
 
 import java.util.ArrayList;
+import java.util.Observer;
 
 /**
  * Example of the PublicTransportSurveillance-System
  *
  * @author Berger Adrian
- * @author BrÃ¶nnimann Nick
+ * @author Brönnimann Nick
  * @since 0.0.1
  * @version 0.0.1
  */
@@ -23,15 +24,17 @@ public class Test {
         Bus busTwo = new Bus(2);
 
         // add observers
-        busOne.addSubscriber(busStation);
-        busOne.addSubscriber(mobileApplication);
-        busOne.addSubscriber(website);
+        busOne.addObserver(busStation);
+        busOne.addObserver(mobileApplication);
+        busOne.addObserver(website);
 
-        busTwo.addSubscriber(busStation);
-        busTwo.addSubscriber(mobileApplication);
+        busTwo.addObserver(busStation);
+        busTwo.addObserver(mobileApplication);
 
         // get current delays and display them
         printDelay(busStation, busStation.getDelayedBus());
+        printDelay(website, website.getDelayedBus());
+        printDelay(mobileApplication, mobileApplication.getDelayedBus());
 
         // cause delay
         busOne.setDelay(60.5f);
@@ -44,15 +47,17 @@ public class Test {
         printDelay(busStation, busStation.getDelayedBus());
     }
 
-    public static void printDelay(TravelInformation observer, ArrayList<Bus> delayedBuses)
+    @SuppressWarnings("unchecked")
+	public static void printDelay(Observer observer, Object delayedBuses)
     {
-        if(!delayedBuses.isEmpty()) {
-            for (Bus bus : delayedBuses) {
-                System.out.println(observer.getClass() + " meldet: Bus " + bus.getNumber() + " hat eine VerspÃ¤tung von " +
-                        bus.getDelay() + "Minuten");
+		ArrayList<Bus> buses = (ArrayList<Bus>) delayedBuses;
+        if(!buses.isEmpty()) {
+        	for (Bus bus : buses) {
+                System.out.println(observer.getClass() + " meldet: Bus " + bus.getNumber() + " hat eine Verspätung von " +
+                        bus.getDelay() + " Minuten");
             }
         } else {
-            System.out.println(observer.getClass() + ": Bisher keine VerspÃ¤tungen vorhanden. Wir wÃ¼nschen Ihnen eine gute Fahrt!");
+            System.out.println(observer.getClass() + " meldet: Bisher keine Verspätungen vorhanden. Wir wünschen Ihnen eine gute Fahrt!");
         }
     }
 }

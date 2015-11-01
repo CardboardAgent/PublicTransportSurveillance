@@ -1,17 +1,18 @@
 package PublicTransportSurveillance;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Class Bus which acts as a specific subject
  * in the observer pattern
  *
  * @author Berger Adrian
- * @author BrÃ¶nnimann Nick
+ * @author Brönnimann Nick
  * @since 0.0.1
  * @version 0.0.1
  */
-public class Bus extends PublicTransportSurveillance {
+public class Bus extends Observable {
     private int number;
     private float delay = 0.0f;
 
@@ -22,6 +23,7 @@ public class Bus extends PublicTransportSurveillance {
      */
     public Bus(int number)
     {
+    	super();
         this.number = number;
     }
 
@@ -35,7 +37,8 @@ public class Bus extends PublicTransportSurveillance {
         this.delay = delay;
         ArrayList<Bus> delayed = new ArrayList<Bus>();
         delayed.add(this);
-        this.setDelay(delayed);
+        super.setChanged();
+        super.notifyObservers(delayed);
     }
 
     /**
